@@ -1,4 +1,10 @@
 Expenseapp::Application.routes.draw do
+  resources :purchases
+
+  resources :users
+
+  resources :households
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
