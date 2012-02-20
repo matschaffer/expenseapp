@@ -3,9 +3,9 @@
 one:
   description: MyString
   amount: 9.99
-  user: 
+  user: one
 
 two:
   description: MyString
   amount: 9.99
-  user: 
+  user: one

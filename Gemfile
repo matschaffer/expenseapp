@@ -7,6 +7,7 @@ gem 'rails', '3.2.1'
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'ruby-debug19', require: 'ruby-debug'
 end
 
 group :production do
@@ -38,4 +39,5 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+  gem 'capybara_rails'
 end
