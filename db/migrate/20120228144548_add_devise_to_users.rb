@@ -1,5 +1,7 @@
 class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
+    remove_column :users, :email
+
     change_table(:users) do |t|
       t.database_authenticatable :null => false
       t.recoverable
