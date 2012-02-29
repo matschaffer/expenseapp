@@ -20,9 +20,14 @@
     <%= f.text_field :amount %>
   </div>
   <div class="field">
+    <%= f.label :tag_list %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+  <div class="field">
     <%= f.label :user_id %><br />
     <%= f.collection_select :user_id, User.all, :id, :name %>
   </div>
+
   <div class="actions">
     <%= f.submit class: 'medium nice blue radius button' %>
   </div>

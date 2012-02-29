@@ -1,7 +1,14 @@
 class PurchasesController < ApplicationController
+  def tag
+    @tags = Purchase.tag_counts_on(:tags)
+    @purchases = Purchase.tagged_with(params[:tag_name])
+    render :index
+  end
+
   # GET /purchases
   # GET /purchases.json
   def index
+    @tags = Purchase.tag_counts_on(:tags)
     @purchases = Purchase.all
 
     respond_to do |format|

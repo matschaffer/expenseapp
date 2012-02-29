@@ -1,7 +1,11 @@
 Expenseapp::Application.routes.draw do
   devise_for :users
 
-  resources :purchases
+  resources :purchases do
+    collection do
+      get '/tag/:tag_name' => 'purchases#tag', as: :tagged
+    end
+  end
 
   resources :users
 
