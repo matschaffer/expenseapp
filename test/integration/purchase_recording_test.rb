@@ -2,7 +2,11 @@ require 'test_helper'
 
 class PurchaseRecordingTest < ActionDispatch::IntegrationTest
   javascript
-  
+
+  setup do
+    login
+  end
+
   test "a new purchase" do
     visit purchases_path
     click_link "New Purchase"

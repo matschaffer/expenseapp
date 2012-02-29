@@ -13,8 +13,7 @@ class ActiveSupport::TestCase
 end
 
 class ActionDispatch::IntegrationTest
-    
-  setup do
+  def login
     User.create(email: 'mat@schaffer.me',
                 password: 'test1234')
     visit new_user_session_path
