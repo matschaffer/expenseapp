@@ -11,3 +11,15 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+class ActionDispatch::IntegrationTest
+    
+  setup do
+    User.create(email: 'mat@schaffer.me',
+                password: 'test1234')
+    visit new_user_session_path
+    fill_in 'Email', with: 'mat@schaffer.me'
+    fill_in 'Password', with: 'test1234'
+    click_button 'Sign in'
+  end
+end
