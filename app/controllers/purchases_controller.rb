@@ -6,11 +6,18 @@ class PurchasesController < ApplicationController
       current_user.purchases
     end
   end
+
+  def tag
+    @purchases = purchases
+    @tags = purchases.tagged_with(params[:tag_name])
+    render :index
+  end
+
   # GET /purchases
   # GET /purchases.json
   def index
-    
     @purchases = purchases
+    @tags = purchases.tag_counts_on(:tags)
 
     respond_to do |format|
       format.html # index.html.erb

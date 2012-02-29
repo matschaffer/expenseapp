@@ -25,3 +25,12 @@
 <br />
 
 <%= link_to 'New Purchase', new_purchase_path %>
+
+<br />
+
+<% tag_cloud(@tags, %(1 2 3 4)) do |tag, level| %>
+  <%= link_to tag.name,
+      tagged_purchases_path(tag.name),
+      :class => "tag#{level}" %>
+<% end %>
+
