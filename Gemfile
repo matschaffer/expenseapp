@@ -19,6 +19,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'newrelic_rpm'
+
 gem 'devise'
 gem 'acts-as-taggable-on'
 
