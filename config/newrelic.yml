@@ -19,4 +19,4 @@
   log_level: info
 
 development:
-  aeveloper_mode: true
+  developer_mode: true
