@@ -10,16 +10,7 @@
     <th></th>
   </tr>
 
-<% @purchases.each do |purchase| %>
-  <tr>
-    <td><%= purchase.description %></td>
-    <td><%= purchase.amount %></td>
-    <td><%= link_to purchase.user.name, purchase.user %></td>
-    <td><%= link_to 'Show', purchase %></td>
-    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
-    <td><%= link_to 'Destroy', purchase, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
+  <%= render @purchases %>
 </table>
 
 <br />
