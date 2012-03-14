@@ -59,7 +59,7 @@ class PurchasesController < ApplicationController
 
     respond_to do |format|
       if @purchase.save
-        Notifications.new_purchase.deliver
+        Notifications.new_purchase(@purchase).deliver
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
         format.json { render json: @purchase, status: :created, location: @purchase }
       else
