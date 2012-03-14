@@ -8,6 +8,11 @@ gem 'rails', '3.2.1'
 group :development, :test do
   gem 'sqlite3'
   gem 'ruby-debug19', require: 'ruby-debug'
+  gem 'letter_opener'
+end
+
+group :development do
+  gem 'letter_opener'
 end
 
 group :production do

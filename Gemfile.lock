@@ -30,6 +30,7 @@ GEM
       multi_json (~> 1.0)
     acts-as-taggable-on (2.2.2)
       rails (~> 3.0)
+    addressable (2.2.7)
     ansi (1.4.2)
     archive-tar-minitar (0.5.2)
     arel (3.0.0)
@@ -76,6 +77,10 @@ GEM
       thor (~> 0.14)
     json (1.6.5)
     json_pure (1.6.5)
+    launchy (2.0.5)
+      addressable (~> 2.2.6)
+    letter_opener (0.0.2)
+      launchy
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
     mail (2.4.1)
@@ -164,6 +169,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2)
   devise
   jquery-rails
+  letter_opener
   pg
   rails (= 3.2.1)
   ruby-debug19
