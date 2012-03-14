@@ -7,9 +7,13 @@ Expenseapp::Application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do
+    member do
+      resource :household, controller: 'UserHousehold'
+    end
+  end
 
-  resources :households
+  resources :households, controller: 'Households'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

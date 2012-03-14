@@ -14,9 +14,18 @@
 
   <% if user_signed_in? %>
     <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <div class="row">
+      <div class="eight columns">
+        <%= yield %>
+      </div>
+      <div class="four columns">
+        <%= render 'household' %>
+      </div>
+    </div>
+  <% else %>
+    <%= yield %>
   <% end %>
 
-  <%= yield %>
 </div>
 
 </body>
