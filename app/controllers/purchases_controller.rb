@@ -1,4 +1,9 @@
 class PurchasesController < ApplicationController
+  layout :none_for_xhr
+  def none_for_xhr
+    'application' unless request.xhr?
+  end
+
   def purchases
     if current_user.admin?
       Purchase
