@@ -10,11 +10,16 @@
 
 
 $(function () {
-  $("#new-purchase-link").click(function (e) {
+  $("#new-purchase-link").one('click', function (e) {
     e.preventDefault();
-    $("<div class='panel'>").load(this.href).insertAfter(this);
+    var $panel = $("<div class='panel'>");
+    $panel.load(this.href).insertAfter(this);
+    $(this).click(function (e) {
+      e.preventDefault();
+      $panel.toggle();
+    });
   });
-  
+
   function postHandler (res) {
     var $res = $(res),
         $err = $res.find('#error_explanation');
@@ -28,7 +33,7 @@ $(function () {
         remove();
     }
   }
-  
+
   $("#new_purchase").live('submit', function (e) {
     e.preventDefault();
     var body = $(this).serialize();
