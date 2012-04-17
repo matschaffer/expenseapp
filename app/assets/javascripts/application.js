@@ -7,3 +7,31 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(function () {
+  $("#new-purchase-link").click(function (e) {
+    e.preventDefault();
+    $("<div class='panel'>").load(this.href).insertAfter(this);
+  });
+  
+  function postHandler (res) {
+    var $res = $(res),
+        $err = $res.find('#error_explanation');
+    if ($err.length) {
+      $("#error_explanation").remove();
+      $err.insertBefore("#new_purchase");
+    } else {
+      $res.appendTo("table.purchases");
+      $("#new-purchase-link").
+        next('.panel').
+        remove();
+    }
+  }
+  
+  $("#new_purchase").live('submit', function (e) {
+    e.preventDefault();
+    var body = $(this).serialize();
+    $.post(this.action, body, postHandler);
+  });
+});

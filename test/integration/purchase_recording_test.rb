@@ -17,3 +17,5 @@ class PurchaseRecordingTest < ActionDispatch::IntegrationTest
     assert page.has_content?(error_message)
   end
 end
+
+

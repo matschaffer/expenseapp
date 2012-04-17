@@ -25,15 +25,10 @@ class PurchasesController < ApplicationController
     end
   end
 
-  # GET /purchases/1
-  # GET /purchases/1.json
   def show
     @purchase = current_user.purchases.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @purchase }
-    end
+    
+    render @purchase if request.xhr?
   end
 
   # GET /purchases/new
