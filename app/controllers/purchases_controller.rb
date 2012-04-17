@@ -16,7 +16,7 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
-    @purchases = purchases
+    @purchases = purchases.recent
     @tags = purchases.tag_counts_on(:tags)
 
     respond_to do |format|
@@ -27,7 +27,7 @@ class PurchasesController < ApplicationController
 
   def show
     @purchase = current_user.purchases.find(params[:id])
-    
+
     render @purchase if request.xhr?
   end
 

@@ -4,6 +4,6 @@ class Purchase < ActiveRecord::Base
   acts_as_taggable
 
   def self.recent
-    where("purchases.created_at >= ?", 14.days.ago)
+    where("purchases.created_at >= ?", 5.days.ago)
   end
 end
