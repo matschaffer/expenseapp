@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ryanb/nested_form.git
+  revision: 63dcbcc6c6dbe07b3761ae8cc0cd04cc2a45024a
+  specs:
+    nested_form (0.2.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -170,6 +176,7 @@ DEPENDENCIES
   devise
   jquery-rails
   letter_opener
+  nested_form!
   newrelic_rpm
   pg
   rails (= 3.2.1)

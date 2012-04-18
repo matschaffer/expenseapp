@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= nested_form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -27,10 +27,12 @@
   <ul>
     <%= f.fields_for(:budgets) do |bf| %>
       <li>
-          Name: <%= bf.text_field :tag %>
-          Amount: <%= bf.text_field :amount %>
+        Name: <%= bf.text_field :tag %>
+        Amount: <%= bf.text_field :amount %>
+        <%= bf.link_to_remove 'Remove budget' %>
       </li>
     <% end %>
+    <%= f.link_to_add 'Add budget', :budgets %>
   </ul>
   <div class="actions">
     <%= f.submit %>

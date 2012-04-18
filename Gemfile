@@ -6,6 +6,8 @@ gem 'newrelic_rpm'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'nested_form', git: 'https://github.com/ryanb/nested_form.git'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'ruby-debug19', require: 'ruby-debug'
