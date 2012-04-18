@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :purchases
   has_many :budgets
 
-  accepts_nested_attributes_for :budgets
+  accepts_nested_attributes_for :budgets, reject_if: proc { |a| a[:amount].empty? }, allow_destroy: true
 
   def recent_household_purchases
     household.purchases.recent
