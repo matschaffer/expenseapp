@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   belongs_to :household
   has_many :purchases
+  has_many :budgets
 
   def recent_household_purchases
     household.purchases.recent
