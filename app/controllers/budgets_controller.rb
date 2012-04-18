@@ -74,10 +74,6 @@ class BudgetsController < ApplicationController
   def destroy
     @budget = Budget.find(params[:id])
     @budget.destroy
-
-    respond_to do |format|
-      format.html { redirect_to budgets_url }
-      format.json { head :no_content }
-    end
+    redirect_to edit_user_path(@budget.user)
   end
 end
