@@ -8,8 +8,8 @@ class PurchasesController < ApplicationController
   end
 
   def tag
-    @purchases = purchases
-    @tags = purchases.tagged_with(params[:tag_name])
+    @purchases = purchases.tagged_with(params[:tag_name])
+    @tags = purchases.tag_counts_on(:tags)
     render :index
   end
 
