@@ -1,4 +1,6 @@
 Expenseapp::Application.routes.draw do
+  resources :budgets
+
   devise_for :users
 
   resources :purchases do
