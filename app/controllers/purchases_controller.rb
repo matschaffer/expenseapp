@@ -89,4 +89,9 @@ class PurchasesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def email
+    Purchase.create_from_email(params)
+    render nothing: true, status: 200
+  end
 end

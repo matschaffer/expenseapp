@@ -9,6 +9,7 @@ class Purchase < ActiveRecord::Base
   end
 
   scope :sorted, order('created_at desc')
+  default_scope sorted
 
   def budgets
     user.budgets.where(tag: tag_list)
@@ -19,5 +20,12 @@ class Purchase < ActiveRecord::Base
     budgets.each { |b| b.recompute }
   end
 
-  default_scope sorted
+  def self.create_from_email(message)
+    user = User.find_by_email(message[:from])
+    tag_list, description = message[:plain].split("\n")[0..1]
+    create(description: description,
+           tag_list:    tag_list,
+           amount:      message[:subject].to_f,
+           user:        user)
+  end
 end
