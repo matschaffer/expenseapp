@@ -17,3 +17,7 @@
 .container { width: 960px; margin: auto; }
 
 .purchases.main .user { display: none; }
+
+#error_explanation { border: 2px solid #c00000; margin-bottom: 10px; }
+#error_explanation h2 { font-size: 16px; color: #fff; background: #c00000; padding-left: 5px; }
+#error_explanation li, #error_explanation ul { margin: 0 0 9px 5px; }
