@@ -9,7 +9,6 @@ class PurchasesController < ApplicationController
 
   def tag
     @purchases = purchases.tagged_with(params[:tag_name])
-    @tags = purchases.tag_counts_on(:tags)
     render :index
   end
 
@@ -17,7 +16,6 @@ class PurchasesController < ApplicationController
   # GET /purchases.json
   def index
     @purchases = purchases.recent
-    @tags = purchases.tag_counts_on(:tags)
 
     respond_to do |format|
       format.html # index.html.erb

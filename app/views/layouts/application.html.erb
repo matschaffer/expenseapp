@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Expenseapp</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Expenseapp</title>
+    <%= stylesheet_link_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<div class="container">
-  <p id="notice"><%= notice %></p>
-  <p id="alert"><%= alert %></p>
-
-  <% if user_signed_in? %>
-    <%= link_to 'Preferences', edit_user_path(current_user) %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    <div class="row">
-      <div class="eight columns">
-        <%= yield %>
-      </div>
-      <div class="four columns">
-        <%= render 'household' %>
+    <div class="header clearfix">
+      <div class="container">
+        <%= link_to "Expenses", root_url, class: 'logo' %>
+        <ul class="nav-bar right">
+          <% if user_signed_in? %>
+            <li><%= link_to 'Preferences', edit_user_path(current_user), class: 'main' %></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, class: 'main', method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign in', new_user_session_path, class: 'main' %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
-  <% else %>
-    <%= yield %>
-  <% end %>
 
-</div>
+    <div class="container">
 
-</body>
+      <%= render 'flash', type: 'success', message: notice %>
+      <%= render 'flash', type: 'error', message: alert %>
+
+      <div class="row">
+        <div class="eight columns">
+          <%= yield %>
+        </div>
+        <div class="four columns">
+          <% if user_signed_in? %>
+            <%= render 'household' %>
+            <%= render 'tags' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

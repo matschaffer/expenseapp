@@ -1,0 +1,7 @@
+<h3>Tags</h3>
+<% tag_cloud(current_user.purchases.tag_counts_on(:tags), %(1 2 3 4)) do |tag, level| %>
+  <%= link_to tag.name,
+      tagged_purchases_path(tag.name),
+      :class => "tag#{level}" %>
+<% end %>
+

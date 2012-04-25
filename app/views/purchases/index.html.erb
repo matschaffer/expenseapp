@@ -1,14 +1,15 @@
 <h1>Recent purchases</h1>
 
-<table class="purchases">
-  <tr>
-    <th>Description</th>
-    <th>Amount</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="purchases main">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Amount</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
   <%= render @purchases %>
 </table>
@@ -18,10 +19,4 @@
 <%= link_to 'New Purchase', new_purchase_path, id: "new-purchase-link" %>
 
 <br />
-
-<% tag_cloud(@tags, %(1 2 3 4)) do |tag, level| %>
-  <%= link_to tag.name,
-      tagged_purchases_path(tag.name),
-      :class => "tag#{level}" %>
-<% end %>
 

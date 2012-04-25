@@ -11,6 +11,11 @@
 
 
 $(function () {
+  $(".alert-box .close").click(function (e) {
+    e.preventDefault();
+    $(this).parent().slideUp();
+  });
+
   $("#new-purchase-link").one('click', function (e) {
     e.preventDefault();
     var $panel = $("<div class='panel'>");

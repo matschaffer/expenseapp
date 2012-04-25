@@ -1,18 +1,14 @@
 <h2>Your household</h2>
-<% if current_user.household %>
-  <h3>Recent purchases</h3>
-  <table class="purchases">
-    <tr>
-      <th>Description</th>
-      <th>Amount</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+<div class="panel">
+  <% if current_user.household %>
+    <h3>Recent purchases</h3>
 
-    <%= render recent_household_purchases %>
-  </table>
-<% else %>
-  <%= link_to "Make a Household", new_household_path(current_user) %>
-<% end %>
+    <ul>
+      <% recent_household_purchases.each do |purchase| %>
+        <li><%= purchase.description %>: <%= number_to_currency purchase.amount %>, <%= purchase.user.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <%= link_to "Make a Household", new_household_path(current_user) %>
+  <% end %>
+</div>
