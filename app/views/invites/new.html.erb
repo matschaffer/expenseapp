@@ -1,0 +1,6 @@
+<h3>Enter an email address below to invite someone to your household</h3>
+<%= form_for current_user.household.invites.build, html: { class: 'nice' } do |f| %>
+  <%= f.label :sent_to, 'Email' %>
+  <%= f.text_field :sent_to, class: 'input-text' %>
+  <%= f.submit "Send invite", class: std_button %>
+<% end %>

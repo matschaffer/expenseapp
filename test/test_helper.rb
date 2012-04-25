@@ -21,4 +21,8 @@ class ActionDispatch::IntegrationTest
     fill_in 'Password', with: 'test1234'
     click_button 'Sign in'
   end
+
+  def logout
+    click_link "Logout"
+  end
 end

@@ -10,6 +10,8 @@ Expenseapp::Application.routes.draw do
     end
   end
 
+  resources :invites
+
   resources :users do
     member do
       resource :household, controller: 'UserHousehold'

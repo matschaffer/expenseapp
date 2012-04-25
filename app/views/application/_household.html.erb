@@ -8,6 +8,7 @@
         <li><%= purchase.description %>: <%= number_to_currency purchase.amount %>, <%= purchase.user.name %></li>
       <% end %>
     </ul>
+    <%= link_to "Invite someone to your household", new_invite_path %>
   <% else %>
     <%= link_to "Make a Household", new_household_path(current_user) %>
   <% end %>

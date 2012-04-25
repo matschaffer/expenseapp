@@ -1,0 +1,23 @@
+<h2>Join household at <%= @household.address %></h2>
+
+<%= form_for(household.users.build, :html => { :class => 'nice' }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.hidden_field :household_id, @household.id %>
+
+  <div><%= f.label :name %>
+  <%= f.text_field :name, class: 'input-text' %></div>
+
+  <div><%= f.label :email %>
+  <%= f.email_field :email, class: 'input-text' %></div>
+
+  <div><%= f.label :password %>
+  <%= f.password_field :password, class: 'input-text' %></div>
+
+  <div><%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'input-text' %></div>
+
+  <div><%= f.submit "Sign up", class: std_button %></div>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

@@ -178,6 +178,7 @@ DEPENDENCIES
   letter_opener
   nested_form!
   newrelic_rpm
+  nokogiri
   pg
   rails (= 3.2.1)
   ruby-debug19
