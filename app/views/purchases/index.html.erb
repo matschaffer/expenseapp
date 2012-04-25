@@ -16,7 +16,9 @@
 
 <br />
 
-<%= link_to 'New Purchase', new_purchase_path, id: "new-purchase-link" %>
+<%= mail_to "c3f5214a7c14256c099c@cloudmailin.net", "New Purchase via email", subject: "price", body: "tag, list\ndescription", class: std_button %>
+<%= link_to 'New Purchase', new_purchase_path, id: "new-purchase-link", class: std_button %>
+
 
 <br />
 
