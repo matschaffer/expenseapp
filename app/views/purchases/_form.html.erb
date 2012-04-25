@@ -1,4 +1,4 @@
-<%= form_for(@purchase, html: { class: 'nice'}) do |f| %>
+<%= form_for(@purchase, html: { class: 'nice' }) do |f| %>
   <% if @purchase.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_field :description, class: 'input-text' %>
   </div>
   <div class="field">
-    <%= f.label :amount %><br />
-    <%= f.text_field :amount %>
+    <%= f.label :amount %>
+    <%= f.text_field :amount, class: 'input-text' %>
   </div>
   <div class="field">
-    <%= f.label :tag_list %><br />
-    <%= f.text_field :tag_list %>
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, class: 'input-text' %>
   </div>
 
   <div class="actions">
-    <%= f.submit class: 'medium nice blue radius button' %>
+    <%= f.submit class: std_button %>
   </div>
 <% end %>
