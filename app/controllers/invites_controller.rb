@@ -3,8 +3,9 @@ class InvitesController < ApplicationController
   end
 
   def show
-    @invite = Invite.find_by_token(params[:id])
-    @household = invite.household
+    current_user.household = Invite.find_by_token(params[:id]).household
+    current_user.save
+    redirect_to root_path
   end
 
   def create

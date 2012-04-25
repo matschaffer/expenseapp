@@ -17,12 +17,11 @@ class HouseholdAssignmentTest < ActionDispatch::IntegrationTest
     visit Nokogiri(mail.body.to_s).search('a').first['href']
   end
 
-  javascript
-
   test "inviting another user to your household" do
     visit purchases_path
     click_link "New Purchase"
     fill_in "Description", with: "Spam"
+    fill_in "Amount", with: "3.50"
     click_button "Create Purchase"
 
     click_link "Invite someone to your household"
@@ -32,6 +31,7 @@ class HouseholdAssignmentTest < ActionDispatch::IntegrationTest
     logout
 
     click_invite_link
+    click_link "Sign up"
     fill_in "Email", with: "kaori@schaffer.me"
     fill_in "Password", with: "test1234"
     fill_in "Password confirmation", with: "test1234"
