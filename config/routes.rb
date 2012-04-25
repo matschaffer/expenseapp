@@ -6,6 +6,7 @@ Expenseapp::Application.routes.draw do
   resources :purchases do
     collection do
       get '/tag/:tag_name' => 'purchases#tag', as: :tagged
+      post :email
     end
   end
 
