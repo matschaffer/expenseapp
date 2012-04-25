@@ -20,17 +20,20 @@
     <%= f.text_field :email, class: 'input-text' %>
   </div>
 
-  <h2>Budgets</h2>
-  <ul>
-    <%= f.fields_for(:budgets) do |bf| %>
-      <li>
-        Name: <%= bf.text_field :tag %>
-        Amount: <%= bf.text_field :amount %>
-        <%= bf.link_to_remove 'Remove budget' %>
-      </li>
-    <% end %>
-    <%= f.link_to_add 'Add budget', :budgets %>
-  </ul>
+  <% if false %>
+    <h2>Budgets</h2>
+    <ul>
+      <%= f.fields_for(:budgets) do |bf| %>
+        <li>
+          Name: <%= bf.text_field :tag %>
+          Amount: <%= bf.text_field :amount %>
+          <%= bf.link_to_remove 'Remove budget' %>
+        </li>
+      <% end %>
+      <%= f.link_to_add 'Add budget', :budgets %>
+    </ul>
+  <% end %>
+
   <div class="actions">
     <%= f.submit class: std_button %>
   </div>
