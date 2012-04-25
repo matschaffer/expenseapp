@@ -90,6 +90,9 @@ class PurchasesController < ApplicationController
     end
   end
 
+  skip_before_filter :verify_authenticity_token, only: :email
+  skip_before_filter :authenticate_user!, only: :email
+
   def email
     Purchase.create_from_email(params)
     render nothing: true, status: 200
