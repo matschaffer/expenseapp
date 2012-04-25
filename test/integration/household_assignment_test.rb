@@ -37,6 +37,8 @@ class HouseholdAssignmentTest < ActionDispatch::IntegrationTest
     fill_in "Password confirmation", with: "test1234"
     click_button "Sign up"
 
-    assert page.has_content?("Spam")
+    within('.sidebar') do
+      assert page.has_content?("Spam")
+    end
   end
 end
